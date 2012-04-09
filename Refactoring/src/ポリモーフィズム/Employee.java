@@ -26,7 +26,7 @@ public class Employee {
 		}
 	}
 
-	private int getType() {
+	public int getType() {
 		// TODO Auto-generated method stub
 		return this.type;
 	}
