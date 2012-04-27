@@ -9,11 +9,15 @@ public class Calculation {
 		int nonSummerRate = 2;
 
 		// TODO Auto-generated method stub
-		if (6 < month && month < 9) {
+		if (isSummer(month)) {
 			charge = quantity * summerRate;
 		} else {
 			charge = quantity * nonSummerRate;
 		}
 		return charge;
+	}
+
+	private boolean isSummer(int month) {
+		return 6 < month && month < 9;
 	}
 }

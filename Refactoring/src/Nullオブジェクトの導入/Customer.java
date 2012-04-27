@@ -15,8 +15,9 @@ public class Customer {
 		this.weeksDelinquent = weeksDelinquent;
 	}
 
-	public Customer() {
+	protected Customer() {
 		// TODO Auto-generated constructor stub
+		// 継承する子クラスが親クラスのコンストラクターを必ず呼ばなくてはいけない。protcedにするのは、サブ以外が呼ばないようにする。
 	}
 
 	public String getName() {
@@ -35,12 +36,28 @@ public class Customer {
 		this.plan = plan;
 	}
 
-	public int getHistory() {
-		return weeksDelinquent;
+	public PaymentHistory getHistory() {
+		return this.paymentHistory;
 	}
 
 	public void setHistory(PaymentHistory paymentHistory) {
 		this.paymentHistory = paymentHistory;
+	}
+
+	public int getWeeksDelinquent() {
+		return weeksDelinquent;
+	}
+
+	public void setWeeksDelinquent(int weeksDelinquent) {
+		this.weeksDelinquent = weeksDelinquent;
+	}
+
+	public boolean isNull() {
+		return false;
+	}
+
+	static Customer newnull() {
+		return new NullCustomer();
 	}
 
 }

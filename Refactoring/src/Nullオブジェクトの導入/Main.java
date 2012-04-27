@@ -15,28 +15,18 @@ public class Main {
 				new PaymentHistory(), 1);
 		Site site = new Site();
 		// この下をコメントアウトでSiteのcustomerがnullになる。
-		//site.setCustomer(customer);
+		site.setCustomer(customer);
 		customer = site.getCustomer();
 
-		if (customer == null) {
-			customerName = "occupant";
-		} else {
-			customerName = customer.getName();
-		}
-		if (customer == null) {
-			plan = BillingPlan.basic();
-		} else {
-			plan = customer.plan;
-		}
+		customerName = customer.getName();
 
-		if (customer == null) {
-			weeksDelinquent = 0;
-		} else {
-			weeksDelinquent = customer.paymentHistory
-					.getWeeksDeliquentInLastYear();
-		}
+		plan = customer.getplan();
+
+		weeksDelinquent = customer.getHistory().getWeeksDeliquentInLastYear();
 
 		System.out.println(customerName);
+		System.out.println(plan.plan);
+		System.out.println(weeksDelinquent);
 
 	}
 }
